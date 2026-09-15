@@ -1,13 +1,178 @@
-.p{color: blue; text-align: center;}
 
-.h1{color: green  ; text-align: center;}
+/* Week 1 styles */
 
-.title{color: red; text-align: center;}
+p {
+    color: blue;
+    text-align: center;
+}
 
-#expense-category{color: purple; text-align: center;}
+h1 {
+    color: green;
+    text-align: center;
+}
+
+.title {
+    color: red;
+    text-align: center;
+}
+
+#expense-category {
+    color: purple;
+    text-align: center;
+}
+
+#expense-name {
+    color: orange;
+    text-align: center;
+}
+
+#expense-amount {
+    color: brown;
+    text-align: center;
+}
 
 
-#expense-name{color: orange; text-align: center;}
+/* General page styling */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
 
 
-#expense-amount{color: brown; text-align: center;}
+/* Add Expense Form */
+
+.add-expense-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-expense-section input,
+.add-expense-section select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Advanced selector 1: Focus pseudo-class */
+
+input:focus,
+select:focus {
+    outline: 2px solid #2e7d32;
+    border-color: #2e7d32;
+}
+
+
+/* Advanced selector 2: Negation pseudo-class */
+
+input:not([type="date"]) {
+    background-color: #fafafa;
+}
+
+
+/* Button */
+
+button {
+    padding: 12px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    /* Required by the challenge */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+
+
+/* Expense Table */
+
+.expenses-section table {
+    width: 100%;
+    
+    /* Required by the challenge */
+    border-collapse: collapse;
+}
+
+
+/* Advanced selector 3: Descendant selector */
+
+.expenses-section th,
+.expenses-section td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+
+/* Table header */
+
+.expenses-section th {
+    background-color: #2e7d32;
+    color: white;
+}
+
+
+/* Advanced selector 4: Position pseudo-class */
+
+.expenses-section tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/* Required table row hover */
+
+.expenses-section tbody tr:hover {
+    background-color: #dff0d8;
+}
+
+
+/* How to use section */
+
+details {
+    padding: 10px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* Multimedia */
+
+.multimedia-section {
+    text-align: center;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}

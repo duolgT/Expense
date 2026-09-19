@@ -1,36 +1,28 @@
 /* =========================================
-   WEEK 3: BUDGET TRACKER VISUAL IDENTITY
+   SPENDWISE DASHBOARD
    ========================================= */
-
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 
 /* =========================================
-   COLOR PALETTE
+   1. THEME VARIABLES
    ========================================= */
 
 :root {
-    --primary-color: #2e7d32;
-    --primary-dark: #1b5e20;
-    --secondary-color: #14532d;
+    --brand-color: #2e7d32;
+    --accent-color: #81c784;
 
     --background-color: #f4f7f5;
-    --card-color: #ffffff;
+    --surface-color: #ffffff;
 
-    --text-color: #334155;
-    --heading-color: #16351f;
+    --primary-text: #16351f;
+    --secondary-text: #64748b;
 
     --border-color: #d1d5db;
-
-    --table-header: #2e7d32;
-    --table-row-alt: #f0f7f1;
-    --table-hover: #dff0d8;
 }
 
 
 /* =========================================
-   GENERAL PAGE STYLING
+   2. GENERAL STYLES
    ========================================= */
 
 * {
@@ -39,300 +31,250 @@
 
 body {
     margin: 0;
-    padding: 30px;
+    font-family: Arial, sans-serif;
 
     background-color: var(--background-color);
-    color: var(--text-color);
-
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
+    color: var(--primary-text);
 }
 
 
 /* =========================================
-   HEADER / PAGE HEADING
+   3. MAIN DASHBOARD GRID
    ========================================= */
 
-header {
-    max-width: 1000px;
-    margin: 0 auto 30px;
+.dashboard {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 240px 1fr;
+}
+
+
+/* =========================================
+   4. SIDEBAR
+   ========================================= */
+
+.sidebar {
     padding: 25px;
 
-    background-color: var(--card-color);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background-color: var(--brand-color);
+    color: white;
 
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-    margin: 0 0 10px;
-
-    color: var(--heading-color);
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
+.logo {
+    margin-bottom: 40px;
 }
 
-p {
+.logo h2 {
     margin: 0;
+}
 
-    color: var(--text-color);
-    text-align: center;
+.logo p {
+    margin: 5px 0 0;
+    color: #dcedc8;
 }
 
 
-/* Keep existing class */
-.title {
-    color: var(--primary-color);
-    text-align: center;
-}
+/* Sidebar navigation uses Flexbox */
 
-
-/* =========================================
-   MAIN SECTIONS / CARDS
-   ========================================= */
-
-section {
-    max-width: 1000px;
-    margin: 0 auto 30px;
-    padding: 25px;
-
-    background-color: var(--card-color);
-
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-}
-
-h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-
-    color: var(--heading-color);
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-}
-
-
-/* =========================================
-   ADD EXPENSE FORM
-   ========================================= */
-
-.add-expense-section form {
+.navigation {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.add-expense-section label {
-    margin-top: 5px;
-
-    color: var(--heading-color);
-
-    font-weight: 600;
-}
-
-.add-expense-section input,
-.add-expense-section select {
-    width: 100%;
-
+.navigation a {
     padding: 12px;
 
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-
-    background-color: #ffffff;
-
-    color: var(--text-color);
-
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-}
-
-
-/* =========================================
-   ADVANCED SELECTOR 1: FOCUS PSEUDO-CLASS
-   ========================================= */
-
-input:focus,
-select:focus {
-    outline: 2px solid #a5d6a7;
-    border-color: var(--primary-color);
-}
-
-
-/* =========================================
-   ADVANCED SELECTOR 2: NEGATION PSEUDO-CLASS
-   ========================================= */
-
-input:not([type="date"]) {
-    background-color: #fafafa;
-}
-
-
-/* =========================================
-   BUTTON
-   ========================================= */
-
-button {
-    margin-top: 10px;
-    padding: 12px 20px;
-
-    background-color: var(--primary-color);
     color: white;
+    text-decoration: none;
 
-    border: none;
     border-radius: 8px;
 
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-
-    cursor: pointer;
+    transition: background-color 200ms ease;
 }
 
-button:hover {
-    background-color: var(--primary-dark);
+.navigation a:hover,
+.navigation a.active {
+    background-color: var(--accent-color);
 }
 
 
 /* =========================================
-   EXPENSE TABLE
+   5. MAIN CONTENT
    ========================================= */
 
-.expenses-section table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    overflow: hidden;
-    border-radius: 8px;
+.main-content {
+    padding: 30px;
 }
 
 
 /* =========================================
-   ADVANCED SELECTOR 3: DESCENDANT SELECTOR
+   6. HEADER - FLEXBOX
    ========================================= */
 
-.expenses-section th,
-.expenses-section td {
-    padding: 14px;
+.dashboard-header {
+    margin-bottom: 30px;
 
-    border: 1px solid var(--border-color);
-
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-
-/* =========================================
-   TABLE HEADER
-   ========================================= */
-
-.expenses-section th {
-    background-color: var(--table-header);
-    color: white;
-
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+.dashboard-header h1 {
+    margin: 0 0 5px;
 }
 
-
-/* =========================================
-   ADVANCED SELECTOR 4: POSITION PSEUDO-CLASS
-   ========================================= */
-
-.expenses-section tr:nth-child(even) {
-    background-color: var(--table-row-alt);
+.dashboard-header p {
+    margin: 0;
+    color: var(--secondary-text);
 }
 
+.user-info {
+    padding: 10px 15px;
 
-/* Required table row hover */
-
-.expenses-section tbody tr:hover {
-    background-color: var(--table-hover);
-}
-
-
-/* =========================================
-   HOW TO USE SECTION
-   ========================================= */
-
-details {
-    padding: 10px;
+    background-color: var(--surface-color);
 
     border: 1px solid var(--border-color);
     border-radius: 8px;
 }
 
-summary {
-    cursor: pointer;
 
-    color: var(--primary-dark);
+/* =========================================
+   7. DASHBOARD CARDS - CSS GRID
+   ========================================= */
 
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
 }
 
 
 /* =========================================
-   MULTIMEDIA
+   8. DASHBOARD CARD - FLEXBOX
    ========================================= */
 
-.multimedia-section {
-    text-align: center;
-}
-
-.multimedia-section img,
-.multimedia-section iframe {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-footer {
-    max-width: 1000px;
-    margin: 30px auto 0;
+.dashboard-card {
+    min-height: 150px;
     padding: 20px;
 
-    color: var(--text-color);
+    background-color: var(--surface-color);
 
-    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease;
 }
 
 
 /* =========================================
-   RESPONSIVE DESIGN
+   9. CARD HOVER
+   ========================================= */
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   10. CARD KEYBOARD FOCUS
+   ========================================= */
+
+.dashboard-card:focus {
+    transform: translateY(-4px);
+
+    box-shadow: 0 0 0 3px var(--accent-color);
+    
+    outline: none;
+}
+
+
+/* Card typography */
+
+.dashboard-card h3 {
+    margin: 0 0 8px;
+}
+
+.dashboard-card p {
+    margin: 0;
+
+    color: var(--secondary-text);
+}
+
+.dashboard-card strong {
+    font-size: 24px;
+    color: var(--brand-color);
+}
+
+
+/* =========================================
+   11. RESPONSIVE DESIGN
    ========================================= */
 
 @media (max-width: 768px) {
 
-    body {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
         padding: 15px;
     }
 
-    header {
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main-content {
         padding: 20px;
     }
 
-    h1 {
-        font-size: 26px;
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
     }
 
-    section {
-        padding: 20px;
+    .dashboard-cards {
+        grid-template-columns: 1fr;
     }
+}
 
-    .expenses-section {
-        overflow-x: auto;
-    }
 
-    .expenses-section table {
-        min-width: 600px;
+/* =========================================
+   12. OPTIONAL DARK THEME
+   ========================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --brand-color: #66bb6a;
+        --accent-color: #a5d6a7;
+
+        --background-color: #121212;
+        --surface-color: #1e1e1e;
+
+        --primary-text: #f5f5f5;
+        --secondary-text: #b0b0b0;
+
+        --border-color: #3a3a3a;
     }
 }

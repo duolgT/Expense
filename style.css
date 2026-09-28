@@ -278,3 +278,158 @@ body {
         --border-color: #3a3a3a;
     }
 }
+
+/* =========================================
+   ADD EXPENSE SECTION
+   ========================================= */
+
+.expense-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.expense-section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1f2937;
+}
+
+
+/* =========================================
+   EXPENSE FORM
+   ========================================= */
+
+#expenseForm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: end;
+}
+
+
+/* =========================================
+   FORM GROUP
+   ========================================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+
+/* =========================================
+   INPUTS AND SELECT
+   ========================================= */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #ffffff;
+    color: #1f2937;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================
+   ADD EXPENSE BUTTON
+   ========================================= */
+
+#expenseForm button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#expenseForm button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+#message {
+    margin-top: 18px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   EXPENSE LIST
+   ========================================= */
+
+.expense-list-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.expense-list-section h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #1f2937;
+}
+
+#expenseList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#expenseList li {
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    font-size: 15px;
+}
+
+#expenseList li:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    #expenseForm {
+        grid-template-columns: 1fr;
+    }
+
+}
